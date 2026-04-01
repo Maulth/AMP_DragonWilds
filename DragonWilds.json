@@ -1,0 +1,84 @@
+{
+  "Name": "Runescape Dragonwilds",
+  "Author": "Maulth",
+  "Version": 1,
+  "Description": "Dedicated server template for Runescape: Dragonwilds.",
+  "Category": "Game",
+  "TargetOS": [ "Windows" ],
+  "DeploymentType": "SteamCMD",
+  "Module": "Generic",
+  "Icon": "dragon",
+
+  "Install": {
+    "Type": "SteamCMD",
+    "AppID": 4019830,
+    "Login": "anonymous",
+    "Validate": true
+  },
+
+  "Settings": {
+    "WorkingDirectory": "C:\\DragonWildsServer",
+    "ExecutablePath": "C:\\DragonWildsServer\\RSDragonwilds\\Binaries\\Win64\\RSDragonwildsServer-Win64-Shipping.exe",
+    "StartParameters": "-log -NewConsole",
+    "StopMode": "ProcessKill",
+    "AutoRestart": true,
+    "RestartDelay": 10
+  },
+
+  "Networking": {
+    "Ports": [
+      {
+        "Name": "GamePort",
+        "Protocol": "UDP",
+        "Port": 7777,
+        "IsPrimary": true
+      }
+    ]
+  },
+
+  "FileSystem": {
+    "ImportantPaths": [
+      {
+        "Name": "Config",
+        "Path": "C:\\DragonWildsServer\\RSDragonwilds\\Saved\\Config\\WindowsServer"
+      },
+      {
+        "Name": "Saves",
+        "Path": "C:\\DragonWildsServer\\RSDragonwilds\\Saved\\SaveGames"
+      },
+      {
+        "Name": "Logs",
+        "Path": "C:\\DragonWildsServer\\RSDragonwilds\\Saved\\Logs"
+      }
+    ]
+  },
+
+  "ConfigMaps": [
+    {
+      "Name": "Dedicated Server Config",
+      "FilePath": "C:\\DragonWildsServer\\RSDragonwilds\\Saved\\Config\\WindowsServer\\DedicatedServer.ini",
+      "Format": "ini",
+      "Fields": [
+        {
+          "Key": "ServerName",
+          "Label": "Server Name",
+          "Type": "string",
+          "Default": "My Dragonwilds Server"
+        },
+        {
+          "Key": "OwnerID",
+          "Label": "Owner ID",
+          "Type": "string",
+          "Default": ""
+        },
+        {
+          "Key": "DefaultWorldName",
+          "Label": "Default World Name",
+          "Type": "string",
+          "Default": "World1"
+        },
+        {
+          "Key": "AdminPassword",
+          "Label": "Admin Password",
+          "Type": "password",
+          "Default": ""
